@@ -1,0 +1,297 @@
+/*
+COLORS:
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* 1ere phase */
+/* Resetting : Browser user-agent adds some padding and margin */
+/* We reset margin and padding in the universal selector cuz those properties are not inherited */
+*,
+::after,
+*::before {
+  margin: 0;
+  padding: 0;
+
+  /* The box-sizing property by itself is not inherited but the value "inherit inforces inheritance" */
+  box-sizing: inherit; /* All elements will inherit from body */
+}
+
+html {
+  /* 1rem === 10px */
+  /* font-size: 10px; */
+  /* Pas en pixel parce que l'on risque de redefinir à chaque les valeurs par default qui permettent au utilisateur de bien chose le contenu dans le navigateur */
+  font-size: 62.5%;
+}
+
+/* Property like fonts are inherited that why we add font here */
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7; /* espace au dessus et en dessous de chaque phase : on veut que les phrase respirent et qu'en bas qu'il y ait un peu d'espace avant d'avoir l'autre contenu */
+  color: #777;
+  padding: 3rem; /* Pushed all it children inside so that we get the white borders around */
+  box-sizing: border-box; /* Change the box model so that the borders and paddings are no longer added to the total height/width that we specify for a box */
+}
+
+.header {
+  height: 95vh; /* For any screen the viewport height will be 90% */
+
+  /* to right : the color will go from left to right */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.801),
+      rgba(40, 180, 133, 0.801)
+    ),
+    url('../img/hero.jpg'); /* We've got 2 background images.1st is the gradiant that goes from one color to another and then after the is our image */
+  background-size: cover; /* However the size of the viewport is,it will alway try to fit the size size of the image accordingly */
+  background-position: top; /* When to reduce the viewport size,the top of the image remains the same while the bottom gets cropped  */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* clip-path: polygon(0 0, 100% 50%, 100% 50%, 0 100%); */
+
+  /* I put this parent to position relation because when i'm gonna position it children,this parent positionned relatively will be the reference according to what it children will be positionned */
+  position: relative;
+}
+
+/* 2eme Phase */
+.logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+
+.logo {
+  /* We only specify the hight and the width will be automatically figured-out by the browser */
+  /* But we could also set the width so that the hight be specified by the internet browser */
+  height: 3.5rem;
+}
+
+.text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* background-color: red; */
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  text-align: center; /* all inline element are treated as texts */
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+
+  /* This is a way to fix the problem with top-down action at the end of the animation */
+  /* We can remove it : It fixed the issue but we don't know why */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  margin-bottom: 6rem;
+}
+
+/* We display them as block so that each line can be placed in a different line */
+.heading-primary-main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  /* animation-delay: 3s; */
+  /*animation-iteration-count: 3; Animation will happen 3 times */
+  animation-timing-function: ease-out;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  animation: moveInRight 1s ease-out;
+  -webkit-animation: moveInRight 1s ease-out;
+}
+
+/* 3eme phase */
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+    -webkit-transform: translateX(-10rem);
+    -moz-transform: translateX(-10rem);
+    -ms-transform: translateX(-10rem);
+    -o-transform: translateX(-10rem);
+  }
+
+  /* 60% {
+    transform: rotate(120deg);
+    -webkit-transform: rotate(120deg);
+    -moz-transform: rotate(120deg);
+    -ms-transform: rotate(120deg);
+    -o-transform: rotate(120deg);
+  } */
+
+  80% {
+    transform: translateX(1rem);
+    -webkit-transform: translateX(1rem);
+    -moz-transform: translateX(1rem);
+    -ms-transform: translateX(1rem);
+    -o-transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    -ms-transform: translate(0);
+    -o-transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+    -webkit-transform: translateX(10rem);
+    -moz-transform: translateX(10rem);
+    -ms-transform: translateX(10rem);
+    -o-transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(1rem);
+    -webkit-transform: translateX(1rem);
+    -moz-transform: translateX(1rem);
+    -ms-transform: translateX(1rem);
+    -o-transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+  }
+}
+
+/* 4eme phase : button */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  position: relative;
+  /*top-bottom:;
+  15px,right-left:;
+  40px*/
+  display: inline-block;
+  /*forwidth/heightofpaddingpropertiestoapply*/
+  border-radius: 10rem;
+  -webkit-border-radius: 10rem;
+  -moz-border-radius: 10rem;
+  -ms-border-radius: 10rem;
+  -o-border-radius: 10rem;
+  transition: all 0.2s;
+  /*cettetransitions'appliquerasurtouteslespropriétésdefinirpourhoverouactive*/
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  font-size: 1.6rem;
+}
+
+/* Au survol */
+.btn:hover {
+  transform: translateY(-0.3rem);
+  -webkit-transform: translateY(-0.3rem);
+  -moz-transform: translateY(-0.3rem);
+  -ms-transform: translateY(-0.3rem);
+  -o-transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+/* When we click it */
+/* box-shadow : decalage-droite droit-bas niveau-clarté */
+.btn:active {
+  transform: translateY(-0.1rem);
+  -webkit-transform: translateY(-0.1rem);
+  -moz-transform: translateY(-0.1rem);
+  -ms-transform: translateY(-0.1rem);
+  -o-transform: translateY(-0.1rem);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+/* 5eme phase */
+.btn::after {
+  content: '';
+  display: inline-block;
+  /*Thisworkscuzitswillbetreayedlikeachildofthebutton*/ /*100%ofthewidthofheightofitparent*/
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  -webkit-border-radius: 10rem;
+  -moz-border-radius: 10rem;
+  -ms-border-radius: 10rem;
+  -o-border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*putitbehinditparent*/
+  z-index: -1;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  -webkit-transform: scaleX(1.4) scaleY(1.6);
+  -moz-transform: scaleX(1.4) scaleY(1.6);
+  -ms-transform: scaleX(1.4) scaleY(1.6);
+  -o-transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+@keyframes moveInButton {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+    -webkit-transform: translateY(3rem);
+    -moz-transform: translateY(3rem);
+    -ms-transform: translateY(3rem);
+    -o-transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+}
+
+.btn-animated {
+  animation: moveInButton 0.75s ease-out;
+  -webkit-animation: moveInButton 0.75s ease-out;
+
+  /* It will automatically apply the % of 0% before the animation starts */
+  animation-fill-mode: backwards;
+}
