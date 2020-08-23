@@ -44,30 +44,26 @@ body {
   /* clip-path: polygon(0 0, 100% 50%, 100% 50%, 0 100%); */
   /* I put this parent to position relation because when i'm gonna position it children,this parent positionned relatively will be the reference according to what it children will be positionned */
   position: relative; }
-
-/* 2eme Phase */
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  /* We only specify the hight and the width will be automatically figured-out by the browser */
-  /* But we could also set the width so that the hight be specified by the internet browser */
-  height: 3.5rem; }
-
-.header__text-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  /* background-color: red; */
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  text-align: center;
-  /* all inline element are treated as texts */ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    /* We only specify the hight and the width will be automatically figured-out by the browser */
+    /* But we could also set the width so that the hight be specified by the internet browser */
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* background-color: red; */
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    text-align: center;
+    /* all inline element are treated as texts */ }
 
 .heading-primary {
   color: #fff;
@@ -76,27 +72,25 @@ body {
   /* We can remove it : It fixed the issue but we don't know why */
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  margin-bottom: 6rem; }
-
-/* We display them as block so that each line can be placed in a different line */
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  /* animation-delay: 3s; */
-  /*animation-iteration-count: 3; Animation will happen 3 times */
-  animation-timing-function: ease-out; }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  animation: moveInRight 1s ease-out;
-  -webkit-animation: moveInRight 1s ease-out; }
+  margin-bottom: 6rem;
+  /* We display them as block so that each line can be placed in a different line */ }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    /* animation-delay: 3s; */
+    /*animation-iteration-count: 3; Animation will happen 3 times */
+    animation-timing-function: ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out;
+    -webkit-animation: moveInRight 1s ease-out; }
 
 /* 3eme phase */
 @keyframes moveInLeft {
@@ -151,87 +145,85 @@ body {
     -o-transform: translateX(0); } }
 
 /* 4eme phase : button */
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  position: relative;
-  /*top-bottom:;
+.btn {
+  /* Au survol */
+  /* When we click it */
+  /* box-shadow : decalage-droite droit-bas niveau-clarté */ }
+  .btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    position: relative;
+    /*top-bottom:;
   15px,right-left:;
   40px*/
-  display: inline-block;
-  /*forwidth/heightofpaddingpropertiestoapply*/
-  border-radius: 10rem;
-  -webkit-border-radius: 10rem;
-  -moz-border-radius: 10rem;
-  -ms-border-radius: 10rem;
-  -o-border-radius: 10rem;
-  transition: all 0.2s;
-  /*cettetransitions'appliquerasurtouteslespropriétésdefinirpourhoverouactive*/
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -ms-transition: all 0.2s;
-  -o-transition: all 0.2s;
-  font-size: 1.6rem; }
-
-/* Au survol */
-.btn:hover {
-  transform: translateY(-0.3rem);
-  -webkit-transform: translateY(-0.3rem);
-  -moz-transform: translateY(-0.3rem);
-  -ms-transform: translateY(-0.3rem);
-  -o-transform: translateY(-0.3rem);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
-
-/* When we click it */
-/* box-shadow : decalage-droite droit-bas niveau-clarté */
-.btn:active {
-  transform: translateY(-0.1rem);
-  -webkit-transform: translateY(-0.1rem);
-  -moz-transform: translateY(-0.1rem);
-  -ms-transform: translateY(-0.1rem);
-  -o-transform: translateY(-0.1rem);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
-
-.btn--white {
-  background-color: #fff;
-  color: #777; }
-
-/* 5eme phase */
-.btn::after {
-  content: '';
-  display: inline-block;
-  /*Thisworkscuzitswillbetreayedlikeachildofthebutton*/
-  /*100%ofthewidthofheightofitparent*/
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  -webkit-border-radius: 10rem;
-  -moz-border-radius: 10rem;
-  -ms-border-radius: 10rem;
-  -o-border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  /*putitbehinditparent*/
-  z-index: -1;
-  transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  -o-transition: all 0.4s; }
-
-.btn-white::after {
-  background-color: #fff; }
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  -webkit-transform: scaleX(1.4) scaleY(1.6);
-  -moz-transform: scaleX(1.4) scaleY(1.6);
-  -ms-transform: scaleX(1.4) scaleY(1.6);
-  -o-transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
+    display: inline-block;
+    /*forwidth/heightofpaddingpropertiestoapply*/
+    border-radius: 10rem;
+    -webkit-border-radius: 10rem;
+    -moz-border-radius: 10rem;
+    -ms-border-radius: 10rem;
+    -o-border-radius: 10rem;
+    transition: all 0.2s;
+    /*cettetransitions'appliquerasurtouteslespropriétésdefinirpourhoverouactive*/
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    font-size: 1.6rem; }
+  .btn:hover {
+    transform: translateY(-0.3rem);
+    -webkit-transform: translateY(-0.3rem);
+    -moz-transform: translateY(-0.3rem);
+    -ms-transform: translateY(-0.3rem);
+    -o-transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    .btn:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      -webkit-transform: scaleX(1.4) scaleY(1.6);
+      -moz-transform: scaleX(1.4) scaleY(1.6);
+      -ms-transform: scaleX(1.4) scaleY(1.6);
+      -o-transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  .btn:active {
+    transform: translateY(-0.1rem);
+    -webkit-transform: translateY(-0.1rem);
+    -moz-transform: translateY(-0.1rem);
+    -ms-transform: translateY(-0.1rem);
+    -o-transform: translateY(-0.1rem);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
+  .btn--white {
+    background-color: #fff;
+    color: #777; }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn::after {
+    content: '';
+    display: inline-block;
+    /*Thisworkscuzitswillbetreayedlikeachildofthebutton*/
+    /*100%ofthewidthofheightofitparent*/
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    -webkit-border-radius: 10rem;
+    -moz-border-radius: 10rem;
+    -ms-border-radius: 10rem;
+    -o-border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*putitbehinditparent*/
+    z-index: -1;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s; }
+  .btn--animated {
+    animation: moveInButton 0.75s ease-out;
+    -webkit-animation: moveInButton 0.75s ease-out;
+    /* It will automatically apply the % of 0% before the animation starts */
+    animation-fill-mode: backwards; }
 
 @keyframes moveInButton {
   0% {
@@ -248,9 +240,3 @@ body {
     -moz-transform: translateY(0);
     -ms-transform: translateY(0);
     -o-transform: translateY(0); } }
-
-.btn--animated {
-  animation: moveInButton 0.75s ease-out;
-  -webkit-animation: moveInButton 0.75s ease-out;
-  /* It will automatically apply the % of 0% before the animation starts */
-  animation-fill-mode: backwards; }
