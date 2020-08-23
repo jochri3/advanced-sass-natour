@@ -1,0 +1,13 @@
+{
+  "name": "2_natour_css_deep",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Christian Lisangola <christian.lisangola@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "compile:sass": "node-sass ./sass/main.scss ./css/style.css -w"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1"
+  }
+}
