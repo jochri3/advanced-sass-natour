@@ -57,19 +57,19 @@ body {
 }
 
 /* 2eme Phase */
-.logo-box {
+.header__logo-box {
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
 
-.logo {
+.header__logo {
   /* We only specify the hight and the width will be automatically figured-out by the browser */
   /* But we could also set the width so that the hight be specified by the internet browser */
   height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -94,7 +94,7 @@ body {
 }
 
 /* We display them as block so that each line can be placed in a different line */
-.heading-primary-main {
+.heading-primary--main {
   display: block;
   font-size: 6rem;
   font-weight: 400;
@@ -106,7 +106,7 @@ body {
   animation-timing-function: ease-out;
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -227,7 +227,7 @@ body {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
@@ -288,7 +288,7 @@ body {
   }
 }
 
-.btn-animated {
+.btn--animated {
   animation: moveInButton 0.75s ease-out;
   -webkit-animation: moveInButton 0.75s ease-out;
 
