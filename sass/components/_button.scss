@@ -1,0 +1,88 @@
+.btn {
+
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        position: relative;
+        display: inline-block;
+        border-radius: 10rem;
+        -webkit-border-radius: 10rem;
+        -moz-border-radius: 10rem;
+        -ms-border-radius: 10rem;
+        -o-border-radius: 10rem;
+        transition: all 0.2s;
+        -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        -ms-transition: all 0.2s;
+        -o-transition: all 0.2s;
+        font-size: 1.6rem;
+    }
+
+    &:hover {
+        transform: translateY(-0.3rem);
+        -webkit-transform: translateY(-0.3rem);
+        -moz-transform: translateY(-0.3rem);
+        -ms-transform: translateY(-0.3rem);
+        -o-transform: translateY(-0.3rem);
+        box-shadow: 0 1rem 2rem rgba($blackColor, 0.2);
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            -webkit-transform: scaleX(1.4) scaleY(1.6);
+            -moz-transform: scaleX(1.4) scaleY(1.6);
+            -ms-transform: scaleX(1.4) scaleY(1.6);
+            -o-transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active {
+        transform: translateY(-0.1rem);
+        -webkit-transform: translateY(-0.1rem);
+        -moz-transform: translateY(-0.1rem);
+        -ms-transform: translateY(-0.1rem);
+        -o-transform: translateY(-0.1rem);
+        box-shadow: 0 5px 10px rgba($blackColor, 0.2);
+    }
+
+    &--white {
+        background-color: $colorWhite;
+        color: $colorGrayDark;
+
+        &::after {
+            background-color: $colorWhite;
+        }
+    }
+
+    &::after {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        -webkit-border-radius: 10rem;
+        -moz-border-radius: 10rem;
+        -ms-border-radius: 10rem;
+        -o-border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all 0.4s;
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+    }
+
+    &--animated {
+        animation: moveInButton 0.75s ease-out;
+        -webkit-animation: moveInButton 0.75s ease-out;
+
+        /* It will automatically apply the % of 0% before the animation starts */
+        animation-fill-mode: backwards;
+    }
+
+}
