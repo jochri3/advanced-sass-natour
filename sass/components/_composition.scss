@@ -1,0 +1,54 @@
+// @mixin scaleOnHover {
+//   &:hover {
+//     z-index: 1;
+//     border: 0.7rem solid $colorPrimary;
+//     padding: 1.05rem;
+//     box-shadow: 0 1.5rem 4rem rgba($blackColor, 0.4);
+//     -webkit-transform: scale(1.4);
+//   }
+// }
+
+.composition {
+  position: relative;
+  &__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($blackColor, 0.4);
+    border-radius: 0.2rem;
+    -webkit-border-radius: 0.2rem;
+    -moz-border-radius: 0.2rem;
+    -ms-border-radius: 0.2rem;
+    -o-border-radius: 0.2rem;
+    position: absolute;
+    -webkit-transition: all 0.2s;
+    outline-offset: 2rem;//The between the outline and it's content or element
+    &--p1 {
+      left: 0;
+      top: -2rem;
+      //   @include scaleOnHover;
+    }
+
+    &--p2 {
+      right: 0;
+      top: 2rem;
+      //   @include scaleOnHover;
+    }
+
+    &--p3 {
+      left: 20%;
+      top: 10rem;
+      //   @include scaleOnHover;
+    }
+
+    &:hover {
+      z-index: 1;
+      outline: 1.5rem solid $colorPrimary;//doesn't add height/width that is cumulated like the border does
+      box-shadow: 0 1.5rem 4rem rgba($blackColor, 0.4);
+      -webkit-transform: scale(1.1) translateY(-.5rem);
+    }
+  }
+
+  //When we hover the composition, then select the composition photo that is not hovered
+  &:hover &__photo:not(:hover){
+    -webkit-transform: scale(.95);
+  }
+}

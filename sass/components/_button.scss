@@ -1,88 +1,120 @@
 .btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    position: relative;
+    display: inline-block;
+    border-radius: 10rem;
+    -webkit-border-radius: 10rem;
+    -moz-border-radius: 10rem;
+    -ms-border-radius: 10rem;
+    -o-border-radius: 10rem;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    font-size: $defaultFontSize;
+  }
 
-    &:link,
-    &:visited {
-        text-transform: uppercase;
-        text-decoration: none;
-        padding: 1.5rem 4rem;
-        position: relative;
-        display: inline-block;
-        border-radius: 10rem;
-        -webkit-border-radius: 10rem;
-        -moz-border-radius: 10rem;
-        -ms-border-radius: 10rem;
-        -o-border-radius: 10rem;
-        transition: all 0.2s;
-        -webkit-transition: all 0.2s;
-        -moz-transition: all 0.2s;
-        -ms-transition: all 0.2s;
-        -o-transition: all 0.2s;
-        font-size: 1.6rem;
-    }
-
-    &:hover {
-        transform: translateY(-0.3rem);
-        -webkit-transform: translateY(-0.3rem);
-        -moz-transform: translateY(-0.3rem);
-        -ms-transform: translateY(-0.3rem);
-        -o-transform: translateY(-0.3rem);
-        box-shadow: 0 1rem 2rem rgba($blackColor, 0.2);
-
-        &::after {
-            transform: scaleX(1.4) scaleY(1.6);
-            -webkit-transform: scaleX(1.4) scaleY(1.6);
-            -moz-transform: scaleX(1.4) scaleY(1.6);
-            -ms-transform: scaleX(1.4) scaleY(1.6);
-            -o-transform: scaleX(1.4) scaleY(1.6);
-            opacity: 0;
-        }
-    }
-
-    &:active {
-        transform: translateY(-0.1rem);
-        -webkit-transform: translateY(-0.1rem);
-        -moz-transform: translateY(-0.1rem);
-        -ms-transform: translateY(-0.1rem);
-        -o-transform: translateY(-0.1rem);
-        box-shadow: 0 5px 10px rgba($blackColor, 0.2);
-    }
-
-    &--white {
-        background-color: $colorWhite;
-        color: $colorGrayDark;
-
-        &::after {
-            background-color: $colorWhite;
-        }
-    }
+  &:hover {
+    transform: translateY(-0.3rem);
+    -webkit-transform: translateY(-0.3rem);
+    -moz-transform: translateY(-0.3rem);
+    -ms-transform: translateY(-0.3rem);
+    -o-transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba($blackColor, 0.2);
 
     &::after {
-        content: '';
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        border-radius: 10rem;
-        -webkit-border-radius: 10rem;
-        -moz-border-radius: 10rem;
-        -ms-border-radius: 10rem;
-        -o-border-radius: 10rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        transition: all 0.4s;
-        -webkit-transition: all 0.4s;
-        -moz-transition: all 0.4s;
-        -ms-transition: all 0.4s;
-        -o-transition: all 0.4s;
+      transform: scaleX(1.4) scaleY(1.6);
+      -webkit-transform: scaleX(1.4) scaleY(1.6);
+      -moz-transform: scaleX(1.4) scaleY(1.6);
+      -ms-transform: scaleX(1.4) scaleY(1.6);
+      -o-transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
     }
+  }
 
-    &--animated {
-        animation: moveInButton 0.75s ease-out;
-        -webkit-animation: moveInButton 0.75s ease-out;
+  &:active {
+    transform: translateY(-0.1rem);
+    -webkit-transform: translateY(-0.1rem);
+    -moz-transform: translateY(-0.1rem);
+    -ms-transform: translateY(-0.1rem);
+    -o-transform: translateY(-0.1rem);
+    box-shadow: 0 5px 10px rgba($blackColor, 0.2);
+  }
 
-        /* It will automatically apply the % of 0% before the animation starts */
-        animation-fill-mode: backwards;
+  &--white {
+    background-color: $colorWhite;
+    color: $colorGrayDark;
+
+    &::after {
+      background-color: $colorWhite;
     }
+  }
 
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    -webkit-border-radius: 10rem;
+    -moz-border-radius: 10rem;
+    -ms-border-radius: 10rem;
+    -o-border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: moveInButton 0.75s ease-out;
+    -webkit-animation: moveInButton 0.75s ease-out;
+
+    /* It will automatically apply the % of 0% before the animation starts */
+    animation-fill-mode: backwards;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    color: $colorPrimary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $colorPrimary;
+    padding: 3px;
+    font-size: $defaultFontSize;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+  }
+
+  &:hover {
+    background-color: $colorPrimary;
+    color: $colorWhite;
+    //   box-shadow:0 1rem 2rem rgba($color:#000000,$alpha: 1.0);
+    box-shadow: 0 1rem 2rem rgba($blackColor, 1);
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    -o-transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($blackColor, 0.15);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
 }

@@ -1,41 +1,88 @@
 body {
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    line-height: 1.7;
-    color: $colorGrayDark;
-    padding: 3rem;
-
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $colorGrayDark;
+  padding: 3rem;
 }
 
 .heading-primary {
-    color: $colorWhite;
-    text-transform: uppercase;
+  color: $colorWhite;
+  text-transform: uppercase;
 
-    /* This is a way to fix the problem with top-down action at the end of the animation */
-    /* We can remove it : It fixed the issue but we don't know why */
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    margin-bottom: 6rem;
+  /* This is a way to fix the problem with top-down action at the end of the animation */
+  /* We can remove it : It fixed the issue but we don't know why */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  margin-bottom: 6rem;
 
-    /* We display them as block so that each line can be placed in a different line */
-    &--main {
-        display: block;
-        font-size: 6rem;
-        font-weight: 400;
-        letter-spacing: 3.5rem;
-        animation-name: moveInLeft;
-        animation-duration: 1s;
-        /* animation-delay: 3s; */
-        /*animation-iteration-count: 3; Animation will happen 3 times */
-        animation-timing-function: ease-out;
-    }
+  /* We display them as block so that each line can be placed in a different line */
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    /* animation-delay: 3s; */
+    /*animation-iteration-count: 3; Animation will happen 3 times */
+    animation-timing-function: ease-out;
+  }
 
-    &--sub {
-        display: block;
-        font-size: 2rem;
-        font-weight: 700;
-        letter-spacing: 1.75rem;
-        animation: moveInRight 1s ease-out;
-        -webkit-animation: moveInRight 1s ease-out;
-    }
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out;
+    -webkit-animation: moveInRight 1s ease-out;
+  }
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(
+    to right,
+    $colorPrimaryLight,
+    $colorPrimaryDark
+  );
+  // background: url("https://www.teahub.io/photos/full/195-1954693_hd-wallpapers-3d-hd-3d-images-download.jpg");
+  display: inline-block; //Will be treated as a text,so if it's wrapper in a block level element on which we define text-align to center it will be centered as a text contained in the bloc level element : ui-center-text
+  background-clip: text;
+  -webkit-background-clip: text;
+  //The background is now inside the text and not outside
+
+  // -moz-background-clip: text;
+  //to see the background image,will should make the text transparent
+  color: transparent;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  letter-spacing: 0.2rem;
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    -webkit-transform: skewY(2deg) skewX(15deg) scale(1.1);
+    -moz-transform: skewY(2deg) skewX(15deg) scale(1.1);
+    -ms-transform: skewY(2deg) skewX(15deg) scale(1.1);
+    -o-transform: skewY(2deg) skewX(15deg) scale(1.1);
+
+    text-shadow: 0.5rem 1rem 2rem rgba($blackColor, 0.2);
+  }
+}
+
+.heading-tertiary {
+  font-size: $defaultFontSize;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: $defaultFontSize;
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
 }

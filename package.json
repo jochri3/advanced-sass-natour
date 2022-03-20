@@ -5,9 +5,10 @@
   "author": "Christian Lisangola <christian.lisangola@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "compile:sass": "node-sass ./sass/main.scss ./css/style.css -w"
+    "compile:sass": "node-sass ./sass/main.scss ./css/style.css -w",
+    "compile:sass-prod": "node-sass ./sass/main.scss ./css/style.css"
   },
   "devDependencies": {
-    "node-sass": "^4.14.1"
+    "node-sass": "^7.0.1"
   }
 }
