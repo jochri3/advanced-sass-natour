@@ -20,9 +20,13 @@ deploy:
     on:
       branch: develop
 
-  - provider: heroku
-    api_key:
-      secure: $HEROKU_API_KEY
-    app: natour-prod
+  - provider: elasticbeanstalk
+    region: "us-east-1"
+    app: "static-app"
+    env: "Staticapp-env"
+    bucket_name: "elasticbeanstalk-us-east-1-699701020928" #s3 bucket : Travis CI will zip your file then send then to AWS s3(hard drive for static files)
+    bucket_path: "natours"
     on:
       branch: main
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
