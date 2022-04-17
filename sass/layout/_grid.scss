@@ -1,0 +1,60 @@
+.row {
+  max-width: $gridWith; //If the viewport width is less than the specified value, it will simply occupy 100% of the viewport width
+
+  //margin top-bottom : 0
+  //margin right-left : auto , browser figures out what we want for right and left, and it will give them the same value
+  margin: 0 auto; //a trick to center a block element inside another bloc element
+  // margin-bottom: $gutterVertical;
+
+  // &:last-child{
+  //     margin-bottom: 0;
+  // }
+
+  //It means for this specific property, it's not applied to the last child element
+  &:not(:last-child) {
+    margin-bottom: $gutterVertical;
+  }
+  //row::after{...}
+  @include clearFix;
+
+  //Selecting based on regex
+  //[col*='col' : containing col string
+  //[col^='col' : starting with col string
+  //[col$='col' : ending with col string
+  [class^="col-"] {
+    float: left;
+    &:not(:last-child) {
+      margin-right: $horizontalGutter;
+    }
+  }
+
+  .col-1-of-2 {
+    // 100%-gap horizontal : pour avoir la valeur de chaque portion, on ne doit pas tenir compte du gap
+    // C'est pourquoi on doit dans le width total le soustraire.Puis dans le résulat obtenu
+    // On sait exactement ce que vaut la portion qui est occupé , et donc on la divise maintenant par 2 pour avoir des widths égales
+    // #{$variable} : pour référencer une variable dans une fonction
+    width: calc((100% - #{$horizontalGutter}) / 2);
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - (2 * #{$horizontalGutter})) / 3);
+  }
+
+  .col-1-of-4{
+      width:calc((100% - (3 * #{$horizontalGutter}))/4)
+  }
+
+  //More complicated
+  .col-2-of-3{
+    //   width: calc((2*(100% - (2 * #{$horizontalGutter})) / 3) + #{$horizontalGutter});
+    width:calc(100% - #{$horizontalGutter} - ((100% - (2*#{$horizontalGutter}))/3) );
+  }
+
+  .col-2-of-4{
+      width:calc(2*((100% - (3 * #{$horizontalGutter}))/4) + #{$horizontalGutter});
+  }
+
+  .col-3-of-4{
+       width:calc(3*((100% - (3 * #{$horizontalGutter}))/4) + (#{$horizontalGutter})*2);
+  }
+}

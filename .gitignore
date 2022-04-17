@@ -1,0 +1,5 @@
+node_modules
+.vscode
+slides-*
+yarn.lock
+Dockerfile-v1

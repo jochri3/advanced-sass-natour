@@ -1,0 +1,40 @@
+.section-about {
+  background-color: $colorLightGray1;
+
+  //Pousser son contenu pour générer de l'espace
+  padding: 25rem 0;
+  margin-top: -20vh; //95vh - 75vh : distance entre le triange et la zone base.Puis on le remonte avec une valeur négative
+}
+
+.section-features {
+  padding: 20rem 0;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($colorPrimaryLight, 0.801),
+      rgba($colorPrimaryDark, 0.801)
+    ),
+    url("../img/nat-4.jpg");
+  background-size: cover;
+  transform: skewY(-7deg);
+  -webkit-transform: skewY(-7deg);
+  -moz-transform: skewY(-7deg);
+  -ms-transform: skewY(-7deg);
+  -o-transform: skewY(-7deg);
+  margin-top: -12rem;
+  //   margin-top: 10rem;
+  //The property is inherited, so to prevent
+  //all the grand childs to skew evey child would skew
+  & > * {
+    transform: skewY(7deg);
+    -webkit-transform: skewY(7deg);
+    -moz-transform: skewY(7deg);
+    -ms-transform: skewY(7deg);
+    -o-transform: skewY(7deg);
+  }
+}
+
+.section-tours {
+  background-color: $colorLightGray1;
+  padding: 25rem 0 50rem 0;
+  margin-top: -12rem;
+}

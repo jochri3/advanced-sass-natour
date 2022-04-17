@@ -1,0 +1,46 @@
+.header {
+    height: 95vh;
+    /* For any screen the viewport height will be 90% */
+
+    /* to right : the color will go from left to right */
+    background-image: linear-gradient(to right bottom,
+            rgba($colorPrimaryLight, 0.801),
+            rgba($colorPrimaryDark, 0.801)),
+        url('../img/hero.jpg');
+    /* We've got 2 background images.1st is the gradiant that goes from one color to another and then after the is our image */
+    background-size: cover;
+    /* However the size of the viewport is,it will alway try to fit the size size of the image accordingly */
+    background-position: top;
+    /* When to reduce the viewport size,the top of the image remains the same while the bottom gets cropped  */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    /* clip-path: polygon(0 0, 100% 50%, 100% 50%, 0 100%); */
+
+    /* I put this parent to position relation because when i'm gonna position it children,this parent positionned relatively will be the reference according to what it children will be positionned */
+    position: relative;
+
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        /* We only specify the hight and the width will be automatically figured-out by the browser */
+        /* But we could also set the width so that the hight be specified by the internet browser */
+        height: 3.5rem;
+    }
+
+    &__text-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        /* background-color: red; */
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        text-align: center;
+        /* all inline element are treated as texts */
+    }
+}
