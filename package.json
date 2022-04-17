@@ -5,10 +5,14 @@
   "author": "Christian Lisangola <christian.lisangola@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "compile:sass": "node-sass ./sass/main.scss ./css/style.css -w",
-    "compile:sass-prod": "node-sass ./sass/main.scss ./css/style.css"
+    "compile-sass:dev": "node-sass ./sass/main.scss ./css/style.css -w",
+    "compile-sass:prod": "node-sass ./sass/main.scss ./css/style.css",
+    "dev": "concurrently \"npm run compile-sass:dev\" \"live-server --port=80\" ",
+    "test": "jest"
   },
   "devDependencies": {
+    "concurrently": "^7.1.0",
+    "jest": "^27.5.1",
     "node-sass": "^7.0.1"
   }
 }

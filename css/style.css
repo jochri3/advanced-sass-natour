@@ -113,7 +113,7 @@ body {
   font-size: 3.5rem;
   text-transform: uppercase;
   font-weight: 700;
-  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  background-image: linear-gradient(to right, red, #28b485);
   display: inline-block;
   background-clip: text;
   -webkit-background-clip: text;
@@ -161,7 +161,7 @@ body {
 
 .section-features {
   padding: 20rem 0;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.801), rgba(40, 180, 133, 0.801)), url("../img/nat-4.jpg");
+  background-image: linear-gradient(to right bottom, rgba(255, 0, 0, 0.801), rgba(40, 180, 133, 0.801)), url("../img/nat-4.jpg");
   background-size: cover;
   transform: skewY(-7deg);
   -webkit-transform: skewY(-7deg);
@@ -285,7 +285,7 @@ body {
   height: 95vh;
   /* For any screen the viewport height will be 90% */
   /* to right : the color will go from left to right */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.801), rgba(40, 180, 133, 0.801)), url("../img/hero.jpg");
+  background-image: linear-gradient(to right bottom, rgba(255, 0, 0, 0.801), rgba(40, 180, 133, 0.801)), url("../img/hero.jpg");
   /* We've got 2 background images.1st is the gradiant that goes from one color to another and then after the is our image */
   background-size: cover;
   /* However the size of the viewport is,it will alway try to fit the size size of the image accordingly */
@@ -406,14 +406,13 @@ body {
   perspective: 150rem;
   -moz-perspective: 150rem;
   font-size: medium;
-  color: #fff;
-  height: 50rem; }
+  height: 52rem; }
   .card__side {
     position: absolute;
     top: 0;
     left: 0;
     background-color: orangered;
-    height: 50rem;
+    height: 52rem;
     transition: all 0.8s;
     -webkit-transition: all 0.8s;
     -moz-transition: all 0.8s;
@@ -427,6 +426,7 @@ body {
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
+    overflow: hidden;
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
     .card__side--front {
       background-color: #fff; }
@@ -450,3 +450,42 @@ body {
     -moz-transform: rotateY(0deg);
     -ms-transform: rotateY(0deg);
     -o-transform: rotateY(0deg); }
+  .card__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+    .card__picture--1 {
+      background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url("../img/nat-5.jpg"); }
+    .card__picture--2 {
+      background-image: url("../img/nat-5.jpg"); }
+    .card__picture--3 {
+      background-image: url("../img/nat-5.jpg"); }
+  .card__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #fff;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    text-align: right;
+    width: 75%; }
+  .card__heading-span {
+    padding: 1rem 1.5rem;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone; }
+    .card__heading-span--1 {
+      background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.85), rgba(255, 119, 48, 0.85)); }
+  .card__details {
+    padding: 3rem; }
+    .card__details ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto; }
+      .card__details ul li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem; }
+        .card__details ul li:not(:last-child) {
+          border-bottom: 1px solid #eee; }

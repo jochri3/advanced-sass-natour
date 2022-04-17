@@ -1,16 +1,15 @@
-FROM node:14-alpine
+FROM node:16-alpine as build
 
-WORKDIR /usr/app
+WORKDIR /app
 
-RUN npm i -g live-server
-
-COPY ./package.json ./
+COPY package*.json .
 
 RUN npm install
 
-COPY ./ ./
+COPY . .
 
-RUN npm run compile:sass-prod
+RUN npm run compile-sass:prod
 
-CMD [ "live-server", "--port=9000" ]
-
+FROM nginx
+EXPOSE 80
+COPY --from=build /app /usr/share/nginx/html
