@@ -9,10 +9,24 @@ before_install:
 script:
   - docker run -e CI=true jochri3/natour-preprod npm run test -- -coverage
 
+before_deploy:
+  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.10.0
+
 deploy:
   - provider: pages
     skip_cleanup: true
     github_token: $GITHUB_TOKEN
     keep_history: true
     on:
+      branch: develop
+
+  - provider: elasticbeanstalk
+    region: "us-east-1"
+    app: "static-app"
+    env: "Staticapp-env"
+    bucket_name: "elasticbeanstalk-us-east-1-699701020928" #s3 bucket : Travis CI will zip your file then send then to AWS s3(hard drive for static files)
+    bucket_path: "natours"
+    on:
       branch: main
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
