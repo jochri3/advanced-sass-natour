@@ -9,6 +9,9 @@ before_install:
 script:
   - docker run -e CI=true jochri3/natour-preprod npm run test -- -coverage
 
+before_deploy:
+  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.10.0
+
 deploy:
   - provider: pages
     skip_cleanup: true
